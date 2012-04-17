@@ -49,7 +49,7 @@
 	if (parent == nil)
 		[uiItem removeFromSuperview];
 	else if(uiItem != nil)
-		[[[CCDirector sharedDirector] openGLView] addSubview:uiItem];
+		[[[CCDirector sharedDirector] view] addSubview:uiItem];
 	[super setParent:parent];
 }
 
@@ -65,7 +65,7 @@
 
 		if (!p.isRelativeAnchorPoint)
 			transform = CGAffineTransformTranslate(
-				transform, p.anchorPointInPixels.x, p.anchorPointInPixels.y);
+				transform, p.anchorPointInPoints.x, p.anchorPointInPoints.y);
 
 		if (p.parent != nil) {
 			pAngle = CC_DEGREES_TO_RADIANS(p.parent.rotation);
@@ -82,7 +82,7 @@
 		transform = CGAffineTransformScale(transform, p.scaleX, p.scaleY);
 
 		transform = CGAffineTransformTranslate(
-			transform, -p.anchorPointInPixels.x, -p.anchorPointInPixels.y);
+			transform, -p.anchorPointInPoints.x, -p.anchorPointInPoints.y);
 	}
 
 	[uiItem setTransform:transform];
