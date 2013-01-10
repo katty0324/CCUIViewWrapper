@@ -63,7 +63,7 @@
 	for (CCNode *p = self; p != nil; p = p.parent) {
 		thisAngle = CC_DEGREES_TO_RADIANS(p.rotation);
 
-		if (!p.isRelativeAnchorPoint)
+		if (p.ignoreAnchorPointForPosition)
 			transform = CGAffineTransformTranslate(
 				transform, p.anchorPointInPoints.x, p.anchorPointInPoints.y);
 
